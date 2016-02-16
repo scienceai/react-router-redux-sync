@@ -1,0 +1,6 @@
+.ackrc
+.dockerignore
+.editorconfig
+.git/
+.gitignore
+circle.yml
