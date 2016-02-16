@@ -6,7 +6,7 @@ Sync params and location from react-router to a redux store.
 
 ### Higher order component
 
-```
+```js
 import { SyncRouting } from 'react-router-redux-sync';
 import { Router, Route, browserHistory } from 'react-router'
 import { Provider } from 'react-redux';
@@ -28,6 +28,6 @@ render(
 ### Reducers
 
 
-```
+```js
 import { locationReducer, paramsReducer } from 'react-router-redux-sync';
 ```
