@@ -33,3 +33,6 @@ node_modules
 .node_repl_history
 
 .DS_Store
+
+# Transpiled output from babel
+dist
