@@ -21,12 +21,14 @@ export function paramsReducer(state = {}, action) {
 export function SyncRouting(ComposedComponent) {
 
   class Provider extends Component {
-    componentDidMount () {
-      const { store, router } = this.context;
+    constructor(props, context) {
+      super(props, context);
+
+      const { store, router } = context;
 
       store.dispatch({
         type: UPDATE_PARAMS,
-        payload: this.props.params
+        payload: props.params
       });
 
       function createUniqueKey(location) {
