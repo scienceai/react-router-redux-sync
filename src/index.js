@@ -6,14 +6,14 @@ export const UPDATE_PARAMS = 'UPDATE_PARAMS';
 
 export function locationReducer(state = {}, action) {
   if (action.type === UPDATE_LOCATION) {
-    return Object.assign({}, state, action.payload)
+    return Object.assign({}, action.payload);
   }
   return state;
 }
 
 export function paramsReducer(state = {}, action) {
   if (action.type === UPDATE_PARAMS) {
-    return Object.assign({}, state, action.payload)
+    return Object.assign({}, action.payload);
   }
   return state;
 }
