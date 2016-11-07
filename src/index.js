@@ -31,6 +31,11 @@ export function SyncRouting(ComposedComponent) {
         payload: props.params
       });
 
+      store.dispatch({
+        type: UPDATE_LOCATION,
+        payload: router.location
+      });
+
       function createUniqueKey(location) {
         return router.createPath(location);
       }
