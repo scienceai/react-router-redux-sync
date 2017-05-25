@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import isEqual from 'lodash/isEqual';
 
 export const UPDATE_LOCATION = 'UPDATE_LOCATION';
@@ -19,7 +20,6 @@ export function paramsReducer(state = {}, action) {
 }
 
 export function SyncRouting(ComposedComponent) {
-
   class Provider extends Component {
     constructor(props, context) {
       super(props, context);
@@ -42,7 +42,10 @@ export function SyncRouting(ComposedComponent) {
 
       this.unsubscribeHistory = router.listen(nextLocation => {
         const { location } = store.getState();
-        if (!location.pathname || createUniqueKey(location) !== createUniqueKey(nextLocation)) {
+        if (
+          !location.pathname ||
+          createUniqueKey(location) !== createUniqueKey(nextLocation)
+        ) {
           store.dispatch({
             type: UPDATE_LOCATION,
             payload: nextLocation
@@ -67,13 +70,13 @@ export function SyncRouting(ComposedComponent) {
     }
 
     render() {
-      return <ComposedComponent {...this.props}/>;
+      return <ComposedComponent {...this.props} />;
     }
   }
 
   Provider.contextTypes = {
-    store: React.PropTypes.object.isRequired,
-    router: React.PropTypes.object.isRequired
+    store: PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired
   };
 
   return Provider;
